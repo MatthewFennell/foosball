@@ -1,13 +1,13 @@
 import cv2
-cap = cv2.VideoCapture('video4.mp4')
+cap = cv2.VideoCapture('video6.mp4')
 
 # tracker = cv2.legacy.TrackerMOSSE_create()
 tracker = cv2.TrackerCSRT_create()
 
 success, img = cap.read()
-cv2.imwrite("filename.png", img)
 
 bbox = cv2.selectROI("Tracking", img, False)
+print(bbox)
 tracker.init(img, bbox)
 
 def drawBox(img, bbox):
